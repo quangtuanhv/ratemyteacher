@@ -57,7 +57,7 @@ class TeacherRepository extends BaseRepository implements TeacherInterface
             'user_id' =>  $inputs['user_id'],
         ];
         $teacher = parent::create($data);
-
+        $teacher->centers()->attach($inputs['centers']);
         if (!$teacher) {
             throw new NotFoundException('Error create teacher');
         }

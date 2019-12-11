@@ -192,7 +192,8 @@ class TeacherController extends ApiController
             'phone',
             'image',
             'identity_card',
-            'email'
+            'email',
+            'centers'
         );
         $data['user_id'] = $this->user ?  $this->user->id : $request->userId ;
         return $this->doAction(function () use ($data) {

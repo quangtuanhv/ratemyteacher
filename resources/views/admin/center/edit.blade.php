@@ -20,7 +20,7 @@
 		</div>
 		<div class="form-group">
             <label for="exampleInputguilde">Giới thiệu</label>
-		  <textarea type="email" class="form-control form-control-user" name="email" id="exampleInputguilde">{{$center->description}}</textarea>
+		  <textarea type="email" class="form-control form-control-user" name="description" id="exampleInputguilde">{{$center->description}}</textarea>
 		</div>
 		<div class="form-group">
             <label for="exampleInputEmail">Email</label>

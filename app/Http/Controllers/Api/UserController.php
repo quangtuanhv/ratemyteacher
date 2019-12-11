@@ -46,15 +46,6 @@ class UserController extends ApiController
         });
    }
    public function update(Request $request, $id) {
-        // $data =  $request->only(
-        //     'name',
-        //     'birthday',
-        //     'address',
-        //     'avatar',
-        //     'phone',
-        //     'gender',
-        //     'about'
-        // );
             $data = ['name'    =>  $request->name,
             'birthday'=>  $request->birthday,
             'address' =>  $request->address,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Center;
 use App\Models\Role;
 use App\Models\Teacher;
 
@@ -16,17 +17,22 @@ class TeacherController extends Controller
     }
     public function edit($id)
     {
+        $centers = Center::all();
         $teacher = Teacher::findOrFail($id);
-        return view('admin.teacher.edit', compact('teacher'));
+        return view('admin.teacher.edit', compact(['teacher','centers']));
     }
     public function create()
     {
-        return view('admin.teacher.create');
+        $centers = Center::all();
+        return view('admin.teacher.create', compact('centers'));
     }
     public function update(Request $request, $id)
     {
-        $teacher = $request->except('_token');
-        $update = Teacher::where('id', $id)->update($teacher);
+        $inputs = $request->except('_token');
+        $teacher = Teacher::where('id', $id)->first();
+        $teacher->update($inputs);
+        $teacher->centers()->sync($inputs['centers']);
+
         return back()->with('success','Cập nhật giáo viên thành công');
     }
 

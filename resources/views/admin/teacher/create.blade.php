@@ -1,6 +1,7 @@
 @extends('admin.wrapper')
 @section('CSS')
     <link href="{{ asset('js/admin/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/multiple-select.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">
 @endsection
 @section('content')
@@ -78,6 +79,18 @@
                               </div>
                           </div>
                           <div class="form-group row">
+                              <label class="col-lg-3 col-form-label form-control-label">Trung tâm công tác</label>
+                              <div class="col-lg-9">
+                                    <select multiple data-placeholder="Thêm trung tâm cho giáo viên" name="centers[]">
+                                        @foreach ($centers as $center)
+                                            <option value="{{$center->id}}">{{$center->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <a class="dribbble" href="https://dribbble.com/shots/5112850-Multiple-select-animation-field" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-1col-dnld-e29e0436f93d2f9c430fde5f3da66f94493fdca66351408ab0f96e2ec518ab17.png" alt=""></a>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
                               <label class="col-lg-3 col-form-label form-control-label"></label>
                               <div class="col-lg-9">
                                   <input type="reset" class="btn btn-secondary" value="Cancel">
@@ -92,6 +105,7 @@
       </div>
 @endsection
 @section('endJS')
+<script src="{{ asset('js/admin/multiple-select.js') }}"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
