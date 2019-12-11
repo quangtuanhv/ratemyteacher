@@ -12,7 +12,8 @@ use Hash;
 use App\Models\User;
 use App\Models\Role;
 use Exception;
-use App\Http\Requests\ImageUploadRequest;
+use App\Exceptions\Api\UnknowException;
+use App\Http\Requests\PasswordRequest;
 
 class UserController extends ApiController
 {
@@ -45,6 +46,23 @@ class UserController extends ApiController
             $this->compacts['user_profile'] = $this->repository->getProfile($user);
         });
    }
+
+   public function changePassword(PasswordRequest $request, $id)
+   {
+        $newPassword = $request->passwordNew;
+        $oldPassword = $request->passwordOld;
+        $user = User::find($id);
+        // dd($newPassword, $oldPassword);
+        if (Hash::check($oldPassword, $user->password)) {
+            return $this->doAction(function () use($id, $newPassword){
+                $this->compacts['user'] = $this->repository->update($id, [
+                    'password' => $newPassword
+                ]);
+            });
+        }
+        throw new UnknowException('Mật khẩu cũ không đúng');
+   }
+
    public function update(Request $request, $id) {
             $data = ['name'    =>  $request->name,
             'birthday'=>  $request->birthday,

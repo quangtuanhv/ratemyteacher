@@ -133,11 +133,8 @@
             const message = res.data.message
             $('#notification').append(message)
             $('#notification').css('display', 'block')
-            console.log(message);
-
         }).catch(err=>{
             console.log(err);
-
         })
     }
 </script>

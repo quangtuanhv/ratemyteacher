@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Api','middleware' => ['xssProtection']], function 
     Route::group(['prefix' => 'user'], function () {
         Route::get('/show/{id}', 'UserController@show');
         Route::post('/update/{id}', 'UserController@update');
+        Route::post('/update-password/{id}', 'UserController@changePassword');
         Route::get('/show/{userId}/review', 'UserController@getReview');
     });
 
