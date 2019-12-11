@@ -7,7 +7,6 @@
       <div class="container-fluid" id="xnxx">
           {{-- {{ var_dump($users) }} --}}
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Tables</h1>
         @if(session()->get('flash_success'))
             <div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -24,7 +23,10 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold d-inline-block text-primary">Teachers</h6>
+            <div class="add-new d-inline-block float-right">
+                <a href="{{route('center.create')}}" class="btn btn-success">+</a>
+            </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -60,7 +62,7 @@
                                         <i class="fas fa-eye" data-toggle="tooltip" data-placement="top"
                                             title="Xem"></i>
                                     </a>
-                                    <a href="/teachers/{{$item->id}}/edit" target="_blank" class="btn btn-primary">
+                                    <a href="/admin/teachers/{{$item->id}}/edit" class="btn btn-primary">
                                         <i class="fas fa-pencil-alt" data-toggle="tooltip" data-placement="top"
                                             title="sửa"></i>
                                     </a>

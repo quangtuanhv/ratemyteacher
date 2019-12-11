@@ -13,6 +13,7 @@ import SentEmail from '../components/auth/SentEmail'
 import NewTeacher from '../components/teacher/newTeacher'
 import DetailTeacher from '../components/teacher/detailTeacher'
 import ProfileUser from '../components/user/profile'
+import UpdateProfile from '../components/user/updateProfile'
 import SearchPage from '../components/common/search'
 import WriteReviewTeacher from '../components/review/newReviewTeacher'
 import DetailReviews from '../components/review/detailReviews'
@@ -25,6 +26,7 @@ const router = [
     { path: '/centers/:id', component: ListTeacher, name: 'list_teacher' },
     { path: '/centers', component: ListCenter, name: 'list_center' },
     { path: '/search/:keyword', component: SearchPage, name: 'search' },
+    { path: '/manage-profile/:id', component: UpdateProfile, name: 'edit_profile_user' },
     { path: '/user-profile/:id', component: ProfileUser, name: 'profile_user' },
     { path: '/detail-teacher/:id', component: DetailTeacher, name: 'detail_teacher' },
     { path: '/reviews/:id/edit', component: EditReview, name: 'edit_review' },

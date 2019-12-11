@@ -16,14 +16,14 @@ use App\Http\Requests\ImageUploadRequest;
 
 class UserController extends ApiController
 {
-   
+
     protected $roleRepository;
     protected $reviewRepository;
 
     public function __construct(
         UserInterface $userRepository,
         RoleInterface $roleRepository,
-        ReviewTeacherInterface $reviewRepository    
+        ReviewTeacherInterface $reviewRepository
     ) {
         parent::__construct($userRepository);
         $this->roleRepository = $roleRepository;
@@ -43,6 +43,28 @@ class UserController extends ApiController
         $user = $this->repository->findOrFail($id);
         return $this->getData(function () use ($user){
             $this->compacts['user_profile'] = $this->repository->getProfile($user);
+        });
+   }
+   public function update(Request $request, $id) {
+        // $data =  $request->only(
+        //     'name',
+        //     'birthday',
+        //     'address',
+        //     'avatar',
+        //     'phone',
+        //     'gender',
+        //     'about'
+        // );
+            $data = ['name'    =>  $request->name,
+            'birthday'=>  $request->birthday,
+            'address' =>  $request->address,
+            'avatar'  =>  $request->avatar,
+            'phone'   =>  $request->phone,
+            'gender'  =>  $request->gender,
+            'about'   =>  $request->about];
+
+        return $this->doAction(function () use($data, $id){
+            $this->compacts['user'] = $this->repository->update( $id, $data);
         });
    }
 

@@ -19,6 +19,10 @@ class TeacherController extends Controller
         $teacher = Teacher::findOrFail($id);
         return view('admin.teacher.edit', compact('teacher'));
     }
+    public function create()
+    {
+        return view('admin.teacher.create');
+    }
     public function update(Request $request, $id)
     {
         $teacher = $request->except('_token');

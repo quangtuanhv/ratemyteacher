@@ -29,7 +29,7 @@ Route::group(['namespace' => 'Api','middleware' => ['xssProtection']], function 
         Route::get('/show/{id}', 'TeacherController@show');
         Route::get('/{id}/review', 'TeacherController@getReviewTeacher');
         Route::get('/{id}/over-view','TeacherController@getOverView');
-        Route::middleware('auth:api')->post('/new', 'TeacherController@store');
+        Route::post('/new', 'TeacherController@store');
     });
 
     Route::group(['prefix' => 'review'], function () {
@@ -44,12 +44,14 @@ Route::group(['namespace' => 'Api','middleware' => ['xssProtection']], function 
 
     Route::group(['prefix' => 'user'], function () {
         Route::get('/show/{id}', 'UserController@show');
+        Route::post('/update/{id}', 'UserController@update');
         Route::get('/show/{userId}/review', 'UserController@getReview');
     });
 
     Route::group(['prefix' => 'centers'], function () {
         Route::get('/', 'CenterController@index');
         Route::get('/{id}', 'CenterController@show');
+        Route::post('/new', 'CenterController@store');
     });
 
     Route::group(['prefix' => 'file', 'as' => 'file'], function () {

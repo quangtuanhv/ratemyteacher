@@ -40,8 +40,9 @@
         {{user.name}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <router-link class="dropdown-item" :to="{name:'profile_user',params:{ id:user.id }}">My profile</router-link>
-          <a class="dropdown-item" href="#">My Account</a>
+          <router-link class="dropdown-item" :to="{name:'profile_user',params:{ id:user.id }}">Trang cá nhân</router-link>
+          <router-link class="dropdown-item" :to="{name:'edit_profile_user',params:{ id:user.id }}">Cập nhật trang cá nhân</router-link>
+          <a class="dropdown-item" href="#">Thay đổi mật khẩu</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item"  v-on:click="handleLogout()">Đăng xuất  <i class="fas fa-sign-out-alt"></i></a>
         </div>

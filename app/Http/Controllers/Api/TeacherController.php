@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeacherRequest;
 use App\Repositories\Contracts\TeacherInterface;
-
+use Auth;
 class TeacherController extends ApiController
 {
     protected $teacherRepository;
@@ -85,7 +85,7 @@ class TeacherController extends ApiController
      *     ),
      * )
      */
-    
+
     public function getReviewTeacher($id)
     {
         $teacher = $this->teacherRepository->findOrFail($id);
@@ -108,7 +108,7 @@ class TeacherController extends ApiController
      *         type="string",
      *         description="teacher's name",
      *         required=true,
-     *     ),     
+     *     ),
      *     @SWG\Parameter(
      *         name="birthday",
      *         in="formData",
@@ -116,55 +116,55 @@ class TeacherController extends ApiController
      *         format="date",
      *         description="teacher's birthday",
      *         required=true,
-     *     ),     
+     *     ),
      *     @SWG\Parameter(
      *         name="gender",
      *         in="formData",
      *         type="integer",
      *         description="teacher's gender",
      *         required=true,
-     *     ),     
+     *     ),
      *     @SWG\Parameter(
      *         name="address",
      *         in="formData",
      *         type="string",
      *         description="teacher's address",
-     *         
-     *     ),     
+     *
+     *     ),
      *     @SWG\Parameter(
      *         name="specialize",
      *         in="formData",
      *         type="string",
      *         description="teacher's specialize",
-     *         
-     *     ),     
+     *
+     *     ),
      *     @SWG\Parameter(
      *         name="description",
      *         in="formData",
      *         type="string",
      *         description="teacher's description",
-     *         
-     *     ),     
+     *
+     *     ),
      *     @SWG\Parameter(
      *         name="phone",
      *         in="formData",
      *         type="integer",
      *         description="teacher's phone",
-     *         
-     *     ),     
+     *
+     *     ),
      *     @SWG\Parameter(
      *         name="image",
      *         in="formData",
      *         type="string",
      *         description="teacher's image",
-     *         
-     *     ),     
+     *
+     *     ),
      *     @SWG\Parameter(
      *         name="identity_card",
      *         in="formData",
      *         type="string",
      *         description="teacher's identity_card",
-     *         
+     *
      *     ),
      *      @SWG\Parameter(
      *         name="email",
@@ -172,7 +172,7 @@ class TeacherController extends ApiController
      *         type="string",
      *         format="email",
      *         description="teacher's email",
-     *         
+     *
      *     ),
      *     @SWG\Response(
      *         response=405,
@@ -194,7 +194,7 @@ class TeacherController extends ApiController
             'identity_card',
             'email'
         );
-        $data['user_id'] = $this->user->id;
+        $data['user_id'] = $this->user ?  $this->user->id : $request->userId ;
         return $this->doAction(function () use ($data) {
             $this->compacts['message'] = $this->teacherRepository->create($data);
         });

@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
             Route::get('{id?}/delete', 'TeacherController@destroy')->name('teacher.delete');
             Route::get('{id?}/edit', 'TeacherController@edit')->name('teacher.edit');
             Route::post('{id?}/update', 'TeacherController@update')->name('teacher.update');
+            Route::get('/create', 'TeacherController@create')->name('teacher.create');
         });
         Route::group(['prefix' => 'reviews'], function () {
             Route::get('/', 'ReviewController@index')->name('review.list');
@@ -62,6 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
             Route::get('{id?}/delete', 'CenterController@destroy')->name('center.delete');
             Route::get('{id?}/edit', 'CenterController@edit')->name('center.edit');
             Route::post('{id?}/update', 'CenterController@update')->name('center.update');
+            Route::get('/create', 'CenterController@create')->name('center.create');
         });
     });
 });

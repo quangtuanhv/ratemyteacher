@@ -26,6 +26,10 @@ class CenterController extends Controller
         $update = Center::where('id', $id)->update($center);
         return back()->with('success','Cập nhật thành công');
     }
+    public function create()
+    {
+        return view('admin.center.create');
+    }
 
     public function destroy($id)
     {

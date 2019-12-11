@@ -40,7 +40,6 @@ class TeacherRepository extends BaseRepository implements TeacherInterface
         ];
     }
     public function create($inputs){
-        // dd($inputs['user_id']);
         if (is_null($inputs) || !is_array($inputs)) {
             throw new UnknowException('Inputs is null or not an array');
         }
