@@ -25,7 +25,7 @@
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold d-inline-block text-primary">Teachers</h6>
             <div class="add-new d-inline-block float-right">
-                <a href="{{route('center.create')}}" class="btn btn-success">+</a>
+                <a href="{{route('teacher.create')}}" class="btn btn-success">+</a>
             </div>
           </div>
           <div class="card-body">
