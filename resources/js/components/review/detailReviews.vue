@@ -1,40 +1,5 @@
 <template>
 <div class="pdt-header">
-    <!-- <section id="img-teacher" class="pt-20 pb-10 container-fluid bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 user-info">
-                    <div class="profile-img">
-                        <img src="/images/default_avatar.png">
-                    </div>
-                    <div class="info-basic">
-                        <p class="name">
-                            <span>Vo Quang Tuan</span>
-                        </p>
-                        <p class="other">
-                            quangtuandev@gmail.com
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 user-data">
-                    <div class="row">
-                        <div class="col-6">
-                                <div class="review">
-                                    <span class="big-size">1</span>
-                                    <span><i class="fa fa-star-o" aria-hidden="true"></i> Review</span>
-                                </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="like">
-                                <span class="big-size">10</span>
-                                <span><i class="fa fa-heart-o" aria-hidden="true"></i> Like</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
     <vue-headful
         :title="detailReviews.name+' | EDUDU - Hệ thống đánh giá chất lượng giảng dạy của giáo viên | edudu.vn'"
         description="Hệ thống đánh giá chất lượng giảng dạy của giáo viên"
