@@ -53,6 +53,6 @@ class Center extends BaseModel
     }
     public function getStarAttribute()
     {
-        return $this->getStarsAttribute() / $this->getRatedAttribute() ? $this->getRatedAttribute() : 1;
+        return $this->getStarsAttribute() / $this->getRatedAttribute() == 0 ? 1 : $this->getRatedAttribute();
     }
 }
