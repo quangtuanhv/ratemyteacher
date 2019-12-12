@@ -61,10 +61,6 @@
                                 <router-link :to="{name:'edit_review',params:{id:review.id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</router-link>
                                 <button @click="deleteReview" to=""><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                             </template>
-                            <template v-else>
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>  Yêu thích</a>
-                            </template>
-                            <a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> Chia sẻ </a>
                         </div>
                     </div>
                 </section>

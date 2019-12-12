@@ -161,9 +161,7 @@ $factory->define(ReviewTeacher::class, function (Faker $faker) use ($reviewTitle
         'user_id' => function () {
             return factory(User::class)->create()->id;
         },
-        'teacher_id' => function () {
-            return factory(App\Models\Teacher::class)->create()->id;
-        }
+        'teacher_id' => $faker->randomElement(App\Models\Teacher::pluck('id')->toArray())
     ];
 });
 

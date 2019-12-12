@@ -27,19 +27,31 @@
                     </div>
                     <div class="reviews-wrap mt-3 mt-md-0">
                         <p class="card-text">
-                            {{ item.teachers }} Teachers
+                            <span class="d-block text-right text-danger font-italic font-weight-bold">{{ Math.round(item.star * 100) / 100 }} / 5 Sao</span>
+                            <span>{{ item.rated }} / {{ item.teachers }} Giáo Viên được đánh giá</span>
                         </p>
                     </div>
                     <div class="review-btn d-flex justify-content-between dot-position">
                         <div class="dropdown">
-                            <div id="dropdown-210912" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-210912">
-                                <a class="dropdown-item" href="https://ratemyteachers.com/flags/new?city=agoura-hills&amp;country=us&amp;school=agoura-high-school&amp;state=california&amp;type=school">Flag School</a>
-                            </div>
+                            <div class="star-rating-container">
+                                <div :class="'star-rating star-rating--medium star-rating-'+ Math.round(item.star)">
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 1">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 2">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 3">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 4">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 5">
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -64,6 +76,14 @@ export default {
             this.teachers = res.data.list
         })
     },
+    filters: {
+        roundNumber: function (value) {
+            console.log(value, 'rrr');
+
+            if (!value) return ''
+            return Math.round(value)
+        }
+    }
 }
 </script>
 <style scoped>

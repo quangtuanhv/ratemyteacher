@@ -31,7 +31,7 @@ class ReviewTeacher extends BaseModel
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
-    
+
     public function teacher(){
         return $this->belongsTo('App\Models\Teacher');
     }
@@ -43,7 +43,7 @@ class ReviewTeacher extends BaseModel
          ->first();
          return $findUser;
     }
-    
+
     public function getTeacherOfReview($teacherId){
         $findTeacher = $this->teacher()
         ->where('id',$teacherId)

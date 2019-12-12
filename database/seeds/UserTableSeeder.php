@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder
     {
         User::truncate();
         \DB::table('role_user')->truncate();
+        \DB::table('social_accounts')->truncate();
 
         // Create user admin and set role for admin
         $idRoleAdmin = Role::ofRole(Role::TYPE_SYSTEM, Role::ROLE_ADMIN)->get();

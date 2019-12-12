@@ -11,6 +11,36 @@
                 <div class="d-md-flex align-items-center justify-content-between ml-3">
                     <div v-if="center !== null" class="heading-wrap mb-4 mb-md-0">
                         <h2 class="mb-3">{{ center.name }}</h2>
+
+                        <div class="">
+                            <div class="dropdown">
+                                <div class="star-rating-container">
+                                    <div :class="'star-rating star-rating--medium star-rating-'+ Math.round(center.star)">
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 1">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 2">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 3">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 4">
+                                        </div>
+                                        <div class="star-item star-item--color">
+                                            <img src="/images/single-star-transparent.svg" alt="Star 5">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <p class="card-text">
+                                <span class="d-block text-danger font-italic font-weight-bold">{{ Math.round(center.star * 100) / 100 }} / 5 Sao</span>
+                                <span>{{ center.rated }} / {{ center.teachers.length }} Giáo Viên được đánh giá</span>
+                            </p>
+                        </div>
                         <p>Giới thiệu: {{ center.description }}</p>
                         <span>Địa chỉ: {{ center.address }}</span><br>
                         <span>Số điện thoại: </span>

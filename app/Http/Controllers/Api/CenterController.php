@@ -21,7 +21,7 @@ class CenterController extends ApiController
                 $teachers = ['teachers' => $item->teachers->count()];
                 $item = collect($item);
                 return $item->merge($teachers);
-            });
+            })->sortByDESC('star')->values()->all();
         });
     }
 
