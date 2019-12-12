@@ -36,7 +36,7 @@ class Center extends BaseModel
     public function getStarsAttribute()
     {
         return $this->teachers->reduce(function ($tart1, $item) {
-            $num = $item->reviews->count() == 0 ? $item->reviews->count() : 1;
+            $num = $item->reviews->count();
             return $tart1 += $item->reviews->reduce(function ($tart2, $item2) use ($num){
                 return $tart2 += $item2->rating / $num;
             });
@@ -44,15 +44,16 @@ class Center extends BaseModel
     }
     public function getRatedAttribute()
     {
-        return $this->teachers->reduce(function ($teachers, $item) {
+        $rated = $this->teachers->reduce(function ($teachers, $item) {
             if ($item->reviews->count() > 0) {
                 return $teachers += 1;
             }
             return $teachers;
         }, 0);
+        return $rated ? $rated : 1;
     }
     public function getStarAttribute()
     {
-        return $this->getStarsAttribute() / $this->getRatedAttribute() == 0 ? 1 : $this->getRatedAttribute();
+        return $this->getStarsAttribute() / $this->getRatedAttribute();
     }
 }
