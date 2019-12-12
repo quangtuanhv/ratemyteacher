@@ -36,7 +36,7 @@ class Center extends BaseModel
     public function getStarsAttribute()
     {
         return $this->teachers->reduce(function ($tart1, $item) {
-            $num = $item->reviews->count() ? $item->reviews->count() : 1;
+            $num = $item->reviews->count() == 0 ? $item->reviews->count() : 1;
             return $tart1 += $item->reviews->reduce(function ($tart2, $item2) use ($num){
                 return $tart2 += $item2->rating / $num;
             });
