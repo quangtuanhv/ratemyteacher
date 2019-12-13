@@ -44,16 +44,16 @@ class Center extends BaseModel
     }
     public function getRatedAttribute()
     {
-        $rated = $this->teachers->reduce(function ($teachers, $item) {
+        return $this->teachers->reduce(function ($teachers, $item) {
             if ($item->reviews->count() > 0) {
                 return $teachers += 1;
             }
             return $teachers;
         }, 0);
-        return $rated ? $rated : 1;
     }
     public function getStarAttribute()
     {
-        return $this->getStarsAttribute() / $this->getRatedAttribute();
+        $rated = $this->getRatedAttribute() ? $this->getRatedAttribute() : 1;
+        return $this->getStarsAttribute() / $rated;
     }
 }

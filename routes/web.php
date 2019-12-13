@@ -36,9 +36,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('login', 'AuthController@login')->name('admin.login');
 
     Route::group(['middleware' => 'admin'], function () {
-        Route::get('/', function () {
-            return view('admin.index');
-        })->name('admin');
+        Route::get('/', 'AuthController@overview')->name('admin');
         Route::group(['prefix' => 'users'], function () {
             Route::get('/', 'UserController@index')->name('user.list');
             Route::get('{id?}/delete', 'UserController@destroy')->name('user.delete');

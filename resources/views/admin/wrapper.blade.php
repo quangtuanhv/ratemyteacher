@@ -33,7 +33,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">EDUDU<sup><i class="far fa-star"></i></sup></div>
       </a>
 
       <!-- Divider -->
@@ -42,24 +42,24 @@
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="{{ route('user.list') }}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-user-graduate fa-fw"></i>
           <span>Users</span></a>
       </li>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="{{ route('teacher.list') }}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-chalkboard-teacher fa-fw"></i>
           <span>Teachers</span></a>
       </li>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="{{ route('review.list') }}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-star fa-fw"></i>
           <span>Reviews</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('center.list') }}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-school fa-fw"></i>
           <span>Centers</span></a>
       </li>
 
