@@ -40,7 +40,7 @@
                         <a href="{{ route('center.list') }}" class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Tổng số trung tâm</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count['center']}}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count['centers']}}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-school fa-3x text-gray-300"></i>
