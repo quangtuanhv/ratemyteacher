@@ -37,7 +37,13 @@
                         </div>
                         <div class="mt-3 mt-md-0">
                             <p class="card-text">
-                                <span class="d-block text-danger font-italic font-weight-bold">{{ Math.round(center.star * 100) / 100 }} / 5 Sao</span>
+                                <span class="d-block text-danger font-italic font-weight-bold">{{ Math.round(center.star * 100) / 100 }} / 5 Sao -
+                                    <span v-if="Math.round(center.star) == 1">Xấu</span>
+                                    <span v-if="Math.round(center.star) == 2">Kém</span>
+                                    <span v-if="Math.round(center.star) == 3">Trung bình</span>
+                                    <span v-if="Math.round(center.star) == 4">Tuyệt vời</span>
+                                    <span v-if="Math.round(center.star) == 5">Xuất sắc</span>
+                                </span>
                                 <span>{{ center.rated }} / {{ center.teachers.length }} Giáo Viên được đánh giá</span>
                             </p>
                         </div>
@@ -65,6 +71,33 @@
                                         <router-link :to="{name: 'detail_teacher', params: {id: item.id}}">{{ item.name }}</router-link>
                                     </h5>
                                     <h6 class="card-subtitle">{{ item.specialize }}</h6>
+                                    <span class="d-block mt-1">({{item.count}} đánh giá)</span>
+                                    <div class="star-rating-container mt-2" v-if="Math.round(item.star) > 0">
+                                        <div :class="'star-rating star-rating--medium star-rating-'+ Math.round(item.star)">
+                                            <div class="star-item star-item--color">
+                                                <img src="/images/single-star-transparent.svg" alt="Star 1">
+                                            </div>
+                                            <div class="star-item star-item--color">
+                                                <img src="/images/single-star-transparent.svg" alt="Star 2">
+                                            </div>
+                                            <div class="star-item star-item--color">
+                                                <img src="/images/single-star-transparent.svg" alt="Star 3">
+                                            </div>
+                                            <div class="star-item star-item--color">
+                                                <img src="/images/single-star-transparent.svg" alt="Star 4">
+                                            </div>
+                                            <div class="star-item star-item--color">
+                                                <img src="/images/single-star-transparent.svg" alt="Star 5">
+                                            </div>
+                                        </div>
+                                        <span class="d-block text-danger font-italic font-weight-bold">{{ Math.round(item.star * 100) / 100 }} / 5 Sao -
+                                            <span v-if="Math.round(item.star) == 1">Xấu</span>
+                                            <span v-if="Math.round(item.star) == 2">Kém</span>
+                                            <span v-if="Math.round(item.star) == 3">Trung bình</span>
+                                            <span v-if="Math.round(item.star) == 4">Tuyệt vời</span>
+                                            <span v-if="Math.round(item.star) == 5">Xuất sắc</span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="reviews-wrap col-md-9">

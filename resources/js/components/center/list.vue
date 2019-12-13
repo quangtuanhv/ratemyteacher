@@ -27,7 +27,15 @@
                     </div>
                     <div class="reviews-wrap mt-3 mt-md-0">
                         <p class="card-text">
-                            <span class="d-block text-right text-danger font-italic font-weight-bold">{{ Math.round(item.star * 100) / 100 }} / 5 Sao</span>
+                            <span class="d-block text-right text-danger font-italic font-weight-bold">
+                                {{ Math.round(item.star * 100) / 100 }} / 5 Sao -
+                                    <span v-if="Math.round(item.star) == 1">Xấu</span>
+                                    <span v-if="Math.round(item.star) == 2">Kém</span>
+                                    <span v-if="Math.round(item.star) == 3">Trung bình</span>
+                                    <span v-if="Math.round(item.star) == 4">Tuyệt vời</span>
+                                    <span v-if="Math.round(item.star) == 5">Xuất sắc</span>
+                            </span>
+
                             <span>{{ item.rated }} / {{ item.teachers }} Giáo Viên được đánh giá</span>
                         </p>
                     </div>

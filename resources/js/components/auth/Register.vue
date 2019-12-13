@@ -75,7 +75,7 @@
                 <router-link to="password/reset">Forgot your password ?</router-link>
               </div>
               <hr class="my-4">
-              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google mr-2"></i> Sign in with Google</button>
+              <button class="btn btn-lg btn-google btn-block text-uppercase"  @click.prevent="redirect('google')"><i class="fa fa-google mr-2"></i> Sign in with Google</button>
             </form>
           </div>
         </div>
@@ -133,6 +133,9 @@ export default {
               })
             })
             .catch(() => {})
+        },
+        redirect(provider) {
+            window.location = `${window.Laravel.url}/redirect/${provider}`
         }
       },
 

@@ -63,11 +63,19 @@
                 </div>
                 <div class="rating-content">
                 <span class="field-name">Ý kiến đánh giá của bạn</span>
-                <textarea class="content-main-rate" v-model="review.description" placeholder="Chia sẻ kinh nghiệm trung thực của bạn và giúp người khác đưa ra lựa chọn tốt hơn."></textarea>
+                <textarea class="content-main-rate"
+                    data-vv-as="Ý kiến"
+                    name="Ý kiến"
+                    v-validate="'required'"
+                    v-model="review.description" placeholder="Chia sẻ kinh nghiệm trung thực của bạn và giúp người khác đưa ra lựa chọn tốt hơn."></textarea>
+                <span class="hasErrors">{{ errors.first('Ý kiến') }}</span>
                 </div>
                 <div class="rating-title">
                 <span class="field-name">Tiêu đề</span>
-                <input type="text" class="content-main-rate" v-model="review.name">
+                <input type="text" data-vv-as="Tiêu đề"
+                    name="Tiêu đề"
+                    v-validate="'required'" class="content-main-rate" v-model="review.name">
+                <span class="hasErrors">{{ errors.first('Tiêu đề') }}</span>
                 </div>
                 <div class="submit-button">
                     <input class="btn btn-success btn-lg btn-rv" type="submit" value="Hoàn tất">

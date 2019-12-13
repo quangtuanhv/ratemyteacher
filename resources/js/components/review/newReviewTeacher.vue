@@ -63,11 +63,24 @@
                 </div>
                 <div class="rating-content">
                 <span class="field-name">Ý kiến đánh giá của bạn</span>
-                <textarea class="content-main-rate" v-model="review.description" placeholder="Chia sẻ kinh nghiệm trung thực của bạn và giúp người khác đưa ra lựa chọn tốt hơn."></textarea>
+                <textarea class="content-main-rate"
+                    data-vv-as="ý kiến"
+                    name="ý kiến"
+                    v-validate="'required'"
+                    v-model="review.description"
+                    placeholder="Chia sẻ kinh nghiệm trung thực của bạn và giúp người khác đưa ra lựa chọn tốt hơn."
+                ></textarea>
+                <span class="hasErrors">{{ errors.first('ý kiến') }}</span>
                 </div>
                 <div class="rating-title">
                 <span class="field-name">Tiêu đề</span>
-                <input type="text" class="content-main-rate" v-model="review.name">
+                <input type="text" class="content-main-rate"
+                    data-vv-as="Tiêu đề"
+                    name="Tiêu đề"
+                    v-validate="'required'"
+                     v-model="review.name">
+                <span class="hasErrors">{{ errors.first('Tiêu đề') }}</span>
+
                 </div>
                 <div class="submit-button">
                     <input class="btn btn-success btn-lg btn-rv" type="submit" value="Gửi đánh giá của bạn">
@@ -138,6 +151,7 @@ export default {
             console.log(this.review)
         },
          addReviewTeacher(){
+        this.$validator.validateAll().then((result) => {
             this.$Progress.start()
             post(postReviewTeacher,this.review)
             .then((res)=>{
@@ -148,6 +162,8 @@ export default {
                 noty({type: 'error', text: "Don't create your review", force: true})
                 this.$Progress.fail()
             })
+            }).catch(() => {})
+
         }
     }
 }

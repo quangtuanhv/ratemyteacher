@@ -31,6 +31,7 @@ class Teacher extends BaseModel
     ];
 
     protected $dates = ['deleted_at'];
+    protected $appends = ['star', 'count'];
 
     protected $searchable = [
         'columns' => [
@@ -74,5 +75,18 @@ class Teacher extends BaseModel
     public function centers()
     {
         return $this->belongsToMany(Center::class)->withTimestamps();
+    }
+
+    public function getStarAttribute()
+    {
+        $num = $this->reviews->count();
+        return $num == 0 ? 0 :
+        $this->reviews->reduce(function ($tart2, $item2) use ($num){
+            return $tart2 += $item2->rating / $num;
+        });
+    }
+    public function getCountAttribute()
+    {
+        return $this->reviews->count();
     }
 }
