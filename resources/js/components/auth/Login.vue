@@ -20,14 +20,14 @@
               <div class="form-label-group">
                 <input type="email" data-vv-as="email" name="email" v-validate="'required|email'"  v-model="user.email" id="inputEmail" class="form-control fix-height" placeholder="Email address" required autofocus>
                 <label for="inputEmail">Email address</label>
+              <span class="hasErrors">{{ errors.first('email') }}</span>
               </div>
-              <!-- <span class="hasErrors">{{ errors.first('email') }}</span> -->
 
               <div class="form-label-group">
                 <input type="password" data-vv-as="password" name="password" v-validate="'required|min:6'"  v-model="user.password" id="inputPassword" class="form-control fix-height" placeholder="Password" required>
                 <label for="inputPassword">Password</label>
+              <span class="hasErrors">{{ errors.first('password') }}</span>
               </div>
-              <!-- <span class="hasErrors">{{ errors.first('password') }}</span> -->
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
               <!-- <div class="custom-control custom-checkbox mb-3">
