@@ -91,6 +91,8 @@ export default {
                         console.log(message)
                     })
             })
+            .catch(() => {})
+
         },
         redirect(provider) {
             window.location = `${window.Laravel.url}/redirect/${provider}`
